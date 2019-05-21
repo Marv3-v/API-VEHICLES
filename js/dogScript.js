@@ -15,16 +15,11 @@ function bring() {
 }
 function  writeBrand(c) {
   console.log(c);
-  document.querySelector(".marca").innerHTML = "Modelos según la Marca";
+  document.querySelector(".marca").innerHTML = "Modelo según la Marca";
   fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas/' + c + '/modelos')
   .then(res => res.json())
-  .then(data => {
-    // document.querySelector(".marca").innerHTML +=  " - " + n;
-    console.log(data.modelos[i].nome);
-    for (var i = 1; i < data.length; i++) {
-      document.querySelector(".models").innerHTML = data.modelos[i].nome;
-
-    }
-
+  .then(dat => {
+    console.log(dat.modelos[0].nome)
+    document.querySelector(".models").innerHTML = dat.modelos[0].nome;
     })
 }
